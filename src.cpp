@@ -174,7 +174,7 @@ BOOL func_proc(ExEdit::Filter* efp, ExEdit::FilterProcInfo* efpip) {
             int const frame = efpip->frame + efpip->add_frame;
             if (frame == 0 || frame < cache->frame || cache_exists_flag == 0)
                 // 新規キャッシュ，あるいは時間が巻き戻っているなら初期化．
-                std::memset(cache, 0, 2 * sizeof(*cache));
+                std::memset(cache, 0, sizeof(*cache));
             else if (cache->frame == frame)
                 // 同一フレームなので音声ソースの更新．読み込み元を巻き戻す．
                 cache->states[0] = cache->states[1];
